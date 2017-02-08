@@ -1,7 +1,7 @@
 def naive_topsort(G, S=None):
     if S is None:
         S = set(G)
-    if len(S) <= 1:
+    if len(S) == 1:
         return list(S)
     v = S.pop()
     seq = naive_topsort(G, S)
@@ -30,6 +30,23 @@ def topsort(G):
     return seq
 
 
+def dfs_topsort(G):
+    seen, res = set(), []
+
+    def recurse(u):
+        if u in seen:
+            return
+        seen.add(u)
+        for v in G[u]:
+            recurse(v)
+        res.append(u)
+
+    for u in G:
+        recurse(u)
+    res.reverse()
+    return res
+
+
 if __name__ == '__main__':
     G = {'a': ['b', 'f'],
          'e': ['f'],
@@ -41,3 +58,4 @@ if __name__ == '__main__':
     should_be = ['a', 'b', 'c', 'd', 'e', 'f']
     assert should_be == naive_topsort(G)
     assert should_be == topsort(G)
+    assert should_be == dfs_topsort(G)
