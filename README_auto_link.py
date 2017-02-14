@@ -11,9 +11,9 @@ with open(join(BASE_DIR, 'README.md'), 'r+') as readme:
     readme.seek(0, 2)
     readme.write('\n')
     for filename in listdir(BASE_DIR):
-        if '-' not in filename or not filename.endswith('.py'):
+        if '_' not in filename or not filename.endswith('.py'):
             continue
-        show_name = filename[:-3].replace('-', ' ')
+        show_name = filename[:-3].replace('_', ' ')
         new_line = '* [{show_name}]({url_base}{filename})\n'.format(
             show_name=show_name,
             url_base=URL_BASE,

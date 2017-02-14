@@ -1,4 +1,6 @@
 from collections import deque
+from topological_sort import dfs_topsort
+from finding_connected_components import walk
 
 
 def rec_dfs(G, s, S=None):
@@ -88,6 +90,30 @@ def bfs(G, s):
     return P
 
 
+def transpose(G):
+    GT = dict()
+    for u in G:
+        GT[u] = set()
+    for u in G:
+        for v in G[u]:
+            GT[v].add(u)
+    return GT
+
+
+def strongly_connected_components(G):
+    GT = transpose(G)
+    scc, seen = [], set()
+
+    for u in GT:
+        if u in seen:
+            continue
+        see = walk(GT, u, seen)
+        seen.update(see)
+        scc.append(see)
+
+    return scc
+
+
 if __name__ == '__main__':
     G = {
         'a': set(['b', 'c', 'd']),
@@ -113,3 +139,5 @@ if __name__ == '__main__':
         path.append(P[a])
         a = P[a]
     print(path)
+
+    # TODO: test scc
