@@ -63,6 +63,48 @@ class BSTree:
         return True
 
 
+def partition(seq):
+    pi, seq = seq[0], seq[1:]
+    lo = [x for x in seq if x < pi]
+    high = [x for x in seq if x > pi]
+    return lo, pi, high
+
+
+def select(seq, k):
+    lo, pi, high = partition(seq)
+    m = len(lo)
+    if m == k:
+        return pi
+    elif m > k:
+        return select(lo, k)
+    else:
+        return select(high, k - m - 1)
+
+
+def quick_sort(seq):
+    if len(seq) <= 1:
+        return seq
+    lo, pi, high = partition(seq)
+    return quick_sort(lo) + [pi] + quick_sort(seq)
+
+
+def merge_sort(seq):
+    mid = len(seq) / 2
+    lft, rgt = seq[:mid], seq[mid:]
+    if len(lft) > 1:
+        lft = merge_sort(lft)
+    if len(rgt):
+        rgt = merge_sort(rgt)
+    res = []
+    while lft and rgt:
+        if lft[-1] > rgt[-1]:
+            res.append(lft.pop())
+        else:
+            res.append(rgt.pop())
+    res.reverse()
+    return (lft or rgt) + res
+
+
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
