@@ -12,6 +12,7 @@ It records the progress of my learning algorithm.
 * [huffman s algorithm](https://github.com/zhengzhou1992/Algorithm-Daily-Learning-Plan/blob/master/huffman_s_algorithm.py)
 * [implementing the checkerboard covering](https://github.com/zhengzhou1992/Algorithm-Daily-Learning-Plan/blob/master/implementing_the_checkerboard_covering.py)
 * [insert sort select sort](https://github.com/zhengzhou1992/Algorithm-Daily-Learning-Plan/blob/master/insert_sort_select_sort.py)
+* [lowest common ancestor of a binary tree](https://github.com/zhengzhou1992/Algorithm-Daily-Learning-Plan/blob/master/lowest_common_ancestor_of_a_binary_tree.py)
 * [minimum spanning trees kruskal prim](https://github.com/zhengzhou1992/Algorithm-Daily-Learning-Plan/blob/master/minimum_spanning_trees_kruskal_prim.py)
 * [README auto link](https://github.com/zhengzhou1992/Algorithm-Daily-Learning-Plan/blob/master/README_auto_link.py)
 * [topological sort](https://github.com/zhengzhou1992/Algorithm-Daily-Learning-Plan/blob/master/topological_sort.py)
